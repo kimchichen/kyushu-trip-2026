@@ -50,10 +50,57 @@
         <div id="day-0" class="day-card active space-y-6">
             <div class="space-y-8 relative pl-8">
                 <div class="timeline-line"></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">03:15 - 04:45</p><h3 class="font-bold">頭份建國小屋 ➔ 桃園機場</h3></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">06:45 - 10:00</p><h3 class="font-bold">桃園機場 ✈️ 福岡機場</h3></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:30 - 11:00</p><h3 class="font-bold">福岡機場 ➔ JR 博多站</h3><button onclick="showInfo('機場轉乘指引', '1. 福岡機場國際線 3F 出境<br>2. 轉往 1F 搭乘接駁巴士<br>3. 約 10-15min 抵達國內線航廈 1F<br>4. 搭乘地鐵機場線(橘線) 5min 抵達博多站')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要交通指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">14:38 - 16:50</p><h3 class="font-bold">由布院之森 5 號 🌲</h3></div>
+                
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div>
+                    <p class="text-xs opacity-60 font-mono">03:15 - 04:45</p>
+                    <h3 class="font-bold">頭份建國小屋 ➔ 桃園國際機場</h3>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
+                    <p class="text-xs opacity-60 font-mono">06:45 - 10:00</p>
+                    <h3 class="font-bold">桃園國際機場 ✈️ 日本福岡機場</h3>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
+                    <p class="text-xs opacity-60 font-mono">10:00 - 10:30</p>
+                    <h3 class="font-bold text-orange-200">完成海關通關手續</h3>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
+                    <p class="text-xs opacity-60 font-mono">10:30 - 11:00</p>
+                    <h3 class="font-bold">福岡機場 ➔ JR 博多站</h3>
+                    <button onclick="showInfo('重要交通資訊', '1. 福岡機場國際線 3F 出境<br>2. 1F 搭乘<b>免費接駁巴士</b><br>3. 約 10-15min 抵達國內線航廈 1F<br>4. 搭乘手扶梯到 B2 搭乘地下鐵<br>5. <b>機場線(橘線)</b> 5min 抵達博多站')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要交通指引</button>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
+                    <p class="text-xs opacity-60 font-mono">11:00 - 13:00</p>
+                    <h3 class="font-bold">JR 博多站換由布院之森票</h3>
+                    <button onclick="showInfo('重要交通資訊', '1. 在 JR 售票口附近找標示 <b>「5489」</b> 或新幹線特快售票機<br>2. 掃描預約 QR Code 領取票券<br>3. <b>核對票券：</b>每人應有基本票及特快票共 2 張<br>4. <b>入閘：</b>將「基本票」插入閘口，過閘後<b>務必取回</b><br>5. 於發車前抵達月台')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要取票指引</button>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
+                    <p class="text-xs opacity-60 font-mono">13:00 - 14:00</p>
+                    <h3 class="font-bold italic">博多車站隨意晃晃、吃午餐</h3>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div>
+                    <p class="text-xs opacity-60 font-mono">14:38 - 16:50</p>
+                    <h3 class="font-bold">由布院之森觀光列車 5 號 🌲</h3>
+                    <button onclick="showInfo('重要交通資訊', '1. 由布院 JR 站下車<br>2. 搭乘 <b>UBL 飯店 (由布院ユウベルホテル)</b> 接駁車<br>3. 或在車站外排隊搭乘計程車')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 抵達接駁資訊</button>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white ring-4 ring-[#36563C]"></div>
+                    <p class="text-xs opacity-60 font-mono">17:00 - </p>
+                    <h3 class="font-bold">由布院ユウベルホテル Check-in</h3>
+                </div>
             </div>
         </div>
 
