@@ -12,7 +12,6 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .timeline-line { position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: rgba(245, 245, 220, 0.2); }
-        /* 彈出視窗樣式 */
         #info-modal { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
         .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 400px; background: #F5F5DC; color: #36563C; padding: 24px; border-radius: 24px; }
     </style>
@@ -33,8 +32,8 @@
                 <p id="current-date-label" class="text-xs opacity-70">2026.02.02 Mon</p>
             </div>
             <div class="text-right">
-                <p class="text-[10px] font-bold opacity-50 uppercase">Today's Weather</p>
-                <p id="weather-label" class="text-sm font-bold">9°C 🌤️ 福岡 / 由布院</p>
+                <p class="text-[10px] font-bold opacity-50 uppercase">Region</p>
+                <p id="region-label" class="text-sm font-bold">福岡 / 由布院</p>
             </div>
         </div>
         <div class="flex gap-2 mt-4 overflow-x-auto pb-2 no-scrollbar">
@@ -51,72 +50,80 @@
         <div id="day-0" class="day-card active space-y-6">
             <div class="space-y-8 relative pl-8">
                 <div class="timeline-line"></div>
-                
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC] ring-4 ring-[#36563C]"></div>
-                    <p class="text-xs opacity-60 font-mono">03:15 - 04:45</p>
-                    <h3 class="font-bold">頭份建國小屋 ➔ 桃園機場</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">06:45 - 10:00</p>
-                    <h3 class="font-bold font-bold">桃園機場 ✈️ 福岡機場</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">10:00 - 10:30</p>
-                    <h3 class="font-bold text-orange-200">完成海關通關手續</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">10:30 - 11:00</p>
-                    <h3 class="font-bold">福岡機場 ➔ JR 博多站</h3>
-                    <button onclick="showInfo('機場轉乘指引', '1. 福岡機場國際線 3F 出境<br>2. 轉往 1F 搭乘<b>免費接駁巴士</b><br>3. 約 10-15min 抵達國內線航廈 1F<br>4. 搭乘手扶梯下至 B2 轉乘地下鐵<br>5. <b>機場線(橘線)</b> 5min 抵達博多站')" class="mt-2 text-[10px] bg-blue-900/40 text-blue-100 border border-blue-400/50 px-3 py-2 rounded-xl font-bold flex items-center gap-1">ℹ️ 重要交通指引</button>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">11:00 - 13:00</p>
-                    <h3 class="font-bold text-[#F5F5DC]">JR 博多站領取票券</h3>
-                    <button onclick="showInfo('取票與入閘指引', '1. 在 JR 售票口附近找標示 <b>「5489」</b> 或新幹線特快售票機<br>2. 掃描預約 QR Code 領取票券<br>3. <b>核對票券：</b>每人應有基本票及特快票共 2 張<br>4. <b>入閘：</b>將「基本票」插入閘口，過閘後<b>務必取回</b><br>5. 提前 15min 抵達月台')" class="mt-2 text-[10px] bg-orange-900/40 text-orange-100 border border-orange-400/50 px-3 py-2 rounded-xl font-bold flex items-center gap-1">ℹ️ 重要取票指引</button>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">13:00 - 14:00</p>
-                    <h3 class="font-bold italic">博多車站午餐、隨意逛逛</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div>
-                    <p class="text-xs opacity-60 font-mono">14:38 - 16:50</p>
-                    <h3 class="font-bold text-lg text-[#F5F5DC]">由布院之森 5 號 🌲</h3>
-                    <button onclick="showInfo('抵達與接駁', '1. 由布院 JR 站下車<br>2. 飯店接駁：出站尋找 <b>UBL 飯店 (由布院ユウベルホテル)</b> 接駁車<br>3. 或在車站外排隊搭乘計程車')" class="mt-2 text-[10px] bg-green-900/40 text-green-100 border border-green-400/50 px-3 py-2 rounded-xl font-bold flex items-center gap-1">ℹ️ 抵達接駁資訊</button>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC] ring-4 ring-[#36563C]"></div>
-                    <p class="text-xs opacity-60 font-mono">17:00 - </p>
-                    <h3 class="font-bold text-[#F5F5DC]">由布院ユウベルホテル Check-in</h3>
-                    <p class="text-xs opacity-80 mt-1">地址：大分縣由布市由布院町川上 1691-8</p>
-                </div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">03:15 - 04:45</p><h3 class="font-bold">頭份建國小屋 ➔ 桃園機場</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">06:45 - 10:00</p><h3 class="font-bold">桃園機場 ✈️ 福岡機場</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:30 - 11:00</p><h3 class="font-bold">福岡機場 ➔ JR 博多站</h3><button onclick="showInfo('機場轉乘指引', '1. 福岡機場國際線 3F 出境<br>2. 轉往 1F 搭乘接駁巴士<br>3. 約 10-15min 抵達國內線航廈 1F<br>4. 搭乘地鐵機場線(橘線) 5min 抵達博多站')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">14:38 - 16:50</p><h3 class="font-bold">由布院之森 5 號 🌲</h3></div>
             </div>
         </div>
 
-        </main>
+        <div id="day-1" class="day-card space-y-6">
+            <div class="space-y-8 relative pl-8">
+                <div class="timeline-line"></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">06:00 - 08:00</p><h3 class="font-bold">金鱗湖晨散 & 飯店早餐</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:00 - 15:30</p><h3 class="font-bold font-bold">Check out ➔ 湯之坪街道</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">15:30 - 15:56</p><h3 class="font-bold text-orange-200 font-bold">回由布院 JR 站</h3><button onclick="showInfo('回程車站指引', '1. 回飯店拿行李<br>2. <b>方式 A：</b>搭計程車 (約 5 分鐘)<br>3. <b>方式 B：</b>步行 (約 30 分鐘)')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要交通資訊</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">15:56 - 18:10</p><h3 class="font-bold">由布院之森 4 號 🌲</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">18:10 - 21:30</p><h3 class="font-bold text-[#F5F5DC]">晚餐：橙 水炊鍋</h3><button onclick="showInfo('前往餐廳路徑', '1. 博多車站搭地鐵<b>機場線(橘線)</b><br>2. 至<b>大濠公園站</b>下車<br>3. <b>4 號出口</b>出站，步行約 5 分鐘抵達')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要交通資訊</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white ring-4 ring-[#36563C]"></div><p class="text-xs opacity-60 font-mono">21:30 - </p><h3 class="font-bold">APA 福岡天神西 Check-in</h3><div class="flex gap-2 mt-2">
+                    <button onclick="showInfo('前往飯店路徑', '1. 從橙水炊鍋步行至<b>大濠公園站</b><br>2. 搭地鐵機場線至<b>赤坂站</b><br>3. <b>2 號出口</b>出站，步行 2 分鐘抵達飯店')" class="text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button>
+                    <button onclick="showInfo('住宿設施資訊', '<b>地點：</b>2 樓備有洗衣區<br><b>洗衣機：</b>2 台 (300 日圓/次)<br><b>乾燥機：</b>2 台 (100 日圓/30 分鐘)')" class="text-[10px] bg-orange-900/40 px-3 py-2 rounded-xl border border-orange-400/50 font-bold">🏨 住宿資訊</button>
+                </div></div>
+            </div>
+        </div>
+
+        <div id="day-2" class="day-card space-y-6">
+            <div class="space-y-8 relative pl-8">
+                <div class="timeline-line"></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">08:30 - 09:30</p><h3 class="font-bold">早餐：Pain Stock 🥐</h3><button onclick="showInfo('早餐交通', '1. 步行至赤坂站<br>2. 搭機場線至天神<br>3. 步行約 6 分鐘抵達')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">09:30 - 10:30</p><h3 class="font-bold">前往太宰府</h3><button onclick="showInfo('太宰府交通詳解', '1. 步至<b>西鐵福岡(天神)</b> (Solaria 2F)<br>2. 搭西鐵天神大牟田線至<b>二日市站</b><br>3. 換乘西鐵太宰府線至終點站<br>4. 出站步行 4 分鐘抵達天滿宮')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 轉乘指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">10:30 - 13:00</p><h3 class="font-bold">太宰府天滿宮 / 表參道</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">15:00 - 18:00</p><h3 class="font-bold">福岡塔參觀 🗼</h3><button onclick="showInfo('前往福岡塔', '1. 回西鐵天神，轉往地鐵天神站<br>2. 機場線至<b>西新站</b><br>3. 轉公車或步行抵達福岡塔')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">18:00 - </p><h3 class="font-bold text-[#F5F5DC]">明太子飯晚餐 & 中洲屋台</h3></div>
+            </div>
+        </div>
+
+        <div id="day-3" class="day-card space-y-6">
+            <div class="space-y-8 relative pl-8">
+                <div class="timeline-line"></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">09:30 - 10:30</p><h3 class="font-bold">早餐：Full Full 天神店 🥖</h3><button onclick="showInfo('早餐交通', '赤坂站搭地鐵至天神站，步行即可')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">11:00 - 13:00</p><h3 class="font-bold">櫛田神社參拜</h3><button onclick="showInfo('前往神社', '搭乘機場線至<b>祇園站</b>，步行 7 分鐘')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">14:00 - 19:00</p><h3 class="font-bold">天神地下街 / Parco / Mina</h3><button onclick="showInfo('地鐵轉乘', '1. 步行至地鐵<b>櫛田神社前站</b><br>2. 搭乘<b>七隈線</b>往橋本方向<br>3. 於<b>天神南站</b>下車')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">19:00 - 20:30</p><h3 class="font-bold">晚餐：葫蘆壽司 🍣</h3><button onclick="showInfo('餐後回家', '1. 步行 12 分鐘回飯店<br>2. 或至天神站搭 1 站到赤坂站')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+            </div>
+        </div>
+
+        <div id="day-4" class="day-card space-y-6">
+            <div class="space-y-8 relative pl-8">
+                <div class="timeline-line"></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:00 - 11:30</p><h3 class="font-bold">早午餐：麵屋兼虎 🍜</h3><button onclick="showInfo('前往麵屋兼虎', '1. 赤坂站搭機場線至天神<br>2. 步行 9 分鐘至天神本店')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">11:30 - 18:00</p><h3 class="font-bold">博多車站 / 阪急採買</h3><button onclick="showInfo('前往博多站', '步行至<b>天神南站</b>，搭乘七隈線直達<b>博多站</b>')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-orange-400"></div><p class="text-xs opacity-60 font-mono">18:30 - 20:35</p><h3 class="font-bold text-orange-200">機場 Check-in & 晚餐</h3><button onclick="showInfo('前往機場', '搭乘機場線回<b>福岡機場站</b>')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">20:35 - 22:20</p><h3 class="font-bold font-bold">福岡機場 ✈️ 桃園機場</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white ring-4 ring-[#36563C]"></div><p class="text-xs opacity-60 font-mono">22:20 - </p><h3 class="font-bold">返回建國路小屋 🏠</h3></div>
+            </div>
+        </div>
+
+        <div id="day-5" class="day-card space-y-6">
+             <div class="bg-[#F5F5DC]/10 p-5 rounded-3xl border border-[#F5F5DC]/20 space-y-4">
+                <h3 class="font-bold">📝 旅行筆記</h3>
+                <p class="text-xs opacity-80 italic">記得隨身攜帶交通卡 (ICOCA/Suica) 與護照。</p>
+            </div>
+        </div>
+    </main>
 
     <script>
         const dates = ["2026.02.02 Mon", "2026.02.03 Tue", "2026.02.04 Wed", "2026.02.05 Thu", "2026.02.06 Fri", "Essential Info"];
-        const regions = ["福岡 / 由布院", "由布院 / 天神", "福岡市區", "天神購物", "福岡機場", "旅行筆記"];
+        const regions = ["福岡 / 由布院", "由布院 / 福岡天神", "福岡 / 太宰府", "天神 / 櫛田神社", "博多 / 機場", "旅行筆記"];
 
         function switchDay(index) {
             document.querySelectorAll('.day-card').forEach(el => el.classList.remove('active'));
             const target = document.getElementById(`day-${index}`);
             if(target) target.classList.add('active');
+            
             document.getElementById('current-date-label').innerText = dates[index];
+            document.getElementById('region-label').innerText = regions[index];
+            
             document.querySelectorAll('.day-btn').forEach((btn, i) => {
                 if(i === index) {
                     btn.classList.add('bg-[#F5F5DC]', 'text-[#36563C]', 'scale-110');
@@ -137,12 +144,6 @@
 
         function closeModal() {
             document.getElementById('info-modal').style.display = 'none';
-        }
-
-        function speak(text) {
-            const uttr = new SpeechSynthesisUtterance(text);
-            uttr.lang = 'ja-JP';
-            window.speechSynthesis.speak(uttr);
         }
     </script>
 </body>
