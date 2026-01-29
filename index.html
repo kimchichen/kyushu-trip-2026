@@ -13,15 +13,16 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .timeline-line { position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: rgba(245, 245, 220, 0.2); }
         #info-modal { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 400px; background: #F5F5DC; color: #36563C; padding: 24px; border-radius: 24px; }
+        .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 400px; max-height: 80vh; overflow-y: auto; background: #F5F5DC; color: #36563C; padding: 24px; border-radius: 24px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     </style>
 </head>
 <body class="pb-24">
     <div id="info-modal" onclick="closeModal()">
         <div class="modal-content shadow-2xl" onclick="event.stopPropagation()">
-            <h3 id="modal-title" class="text-xl font-bold border-b border-[#36563C]/20 pb-2"></h3>
-            <div id="modal-body" class="mt-4 text-sm leading-relaxed space-y-3"></div>
-            <button onclick="closeModal()" class="w-full mt-6 py-3 bg-[#36563C] text-white rounded-xl font-bold">了解，關閉視窗</button>
+            <h3 id="modal-title" class="text-xl font-bold border-b border-[#36563C]/20 pb-2 italic tracking-tight"></h3>
+            <div id="modal-body" class="mt-4 text-sm leading-relaxed"></div>
+            <button onclick="closeModal()" class="w-full mt-6 py-3 bg-[#36563C] text-white rounded-xl font-bold shadow-lg">了解，關閉視窗</button>
         </div>
     </div>
 
@@ -50,57 +51,14 @@
         <div id="day-0" class="day-card active space-y-6">
             <div class="space-y-8 relative pl-8">
                 <div class="timeline-line"></div>
-                
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div>
-                    <p class="text-xs opacity-60 font-mono">03:15 - 04:45</p>
-                    <h3 class="font-bold">頭份建國小屋 ➔ 桃園國際機場</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">06:45 - 10:00</p>
-                    <h3 class="font-bold">桃園國際機場 ✈️ 日本福岡機場</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">10:00 - 10:30</p>
-                    <h3 class="font-bold text-orange-200">完成海關通關手續</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">10:30 - 11:00</p>
-                    <h3 class="font-bold">福岡機場 ➔ JR 博多站</h3>
-                    <button onclick="showInfo('重要交通資訊', '1. 福岡機場國際線 3F 出境<br>2. 1F 搭乘<b>免費接駁巴士</b><br>3. 約 10-15min 抵達國內線航廈 1F<br>4. 搭乘手扶梯到 B2 搭乘地下鐵<br>5. <b>機場線(橘線)</b> 5min 抵達博多站')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要交通指引</button>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">11:00 - 13:00</p>
-                    <h3 class="font-bold">JR 博多站換由布院之森票</h3>
-                    <button onclick="showInfo('重要交通資訊', '1. 在 JR 售票口附近找標示 <b>「5489」</b> 或新幹線特快售票機<br>2. 掃描預約 QR Code 領取票券<br>3. <b>核對票券：</b>每人應有基本票及特快票共 2 張<br>4. <b>入閘：</b>將「基本票」插入閘口，過閘後<b>務必取回</b><br>5. 於發車前抵達月台')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要取票指引</button>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div>
-                    <p class="text-xs opacity-60 font-mono">13:00 - 14:00</p>
-                    <h3 class="font-bold italic">博多車站隨意晃晃、吃午餐</h3>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div>
-                    <p class="text-xs opacity-60 font-mono">14:38 - 16:50</p>
-                    <h3 class="font-bold">由布院之森觀光列車 5 號 🌲</h3>
-                    <button onclick="showInfo('重要交通資訊', '1. 由布院 JR 站下車<br>2. 搭乘 <b>UBL 飯店 (由布院ユウベルホテル)</b> 接駁車<br>3. 或在車站外排隊搭乘計程車')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 抵達接駁資訊</button>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white ring-4 ring-[#36563C]"></div>
-                    <p class="text-xs opacity-60 font-mono">17:00 - </p>
-                    <h3 class="font-bold">由布院ユウベルホテル Check-in</h3>
-                </div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">03:15 - 04:45</p><h3 class="font-bold">頭份建國小屋 ➔ 桃園機場</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">06:45 - 10:00</p><h3 class="font-bold">桃園機場 ✈️ 福岡機場</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:00 - 10:30</p><h3 class="font-bold text-orange-200">完成海關通關手續</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:30 - 11:00</p><h3 class="font-bold">福岡機場 ➔ JR 博多站</h3><button onclick="showInfo('重要交通資訊', '1. 福岡機場國際線 3F 出境<br>2. 1F 搭乘<b>免費接駁巴士</b><br>3. 約 10-15min 抵達國內線航廈 1F<br>4. 搭乘手扶梯到 B2 搭乘地下鐵<br>5. <b>機場線(橘線)</b> 5min 抵達博多站')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">11:00 - 13:00</p><h3 class="font-bold">JR 博多站換由布院之森票</h3><button onclick="showInfo('重要交通資訊', '1. 在 JR 售票口附近找標示 <b>「5489」</b> 或新幹線特快售票機<br>2. 掃描預約 QR Code 領取票券<br>3. <b>核對票券：</b>每人應有基本票及特快票共 2 張<br>4. <b>入閘：</b>將「基本票」插入閘口，過閘後<b>務必取回</b><br>5. 於發車前抵達月台')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 重要取票指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">13:00 - 14:00</p><h3 class="font-bold italic">博多車站隨意晃晃、吃午餐</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">14:38 - 16:50</p><h3 class="font-bold">由布院之森 5 號 🌲</h3><button onclick="showInfo('重要交通資訊', '1. 由布院 JR 站下車<br>2. 搭乘 <b>UBL 飯店</b> 接駁車<br>3. 或在車站外排隊搭乘計程車')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 flex items-center gap-1 font-bold">ℹ️ 抵達接駁資訊</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white ring-4 ring-[#36563C]"></div><p class="text-xs opacity-60 font-mono">17:00 - </p><h3 class="font-bold">由布院ユウベルホテル Check-in</h3></div>
             </div>
         </div>
 
@@ -122,10 +80,10 @@
         <div id="day-2" class="day-card space-y-6">
             <div class="space-y-8 relative pl-8">
                 <div class="timeline-line"></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">08:30 - 09:30</p><h3 class="font-bold">早餐：Pain Stock 🥐</h3><button onclick="showInfo('早餐交通', '1. 步行至赤坂站<br>2. 搭機場線至天神<br>3. 步行約 6 分鐘抵達')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">09:30 - 10:30</p><h3 class="font-bold">前往太宰府</h3><button onclick="showInfo('太宰府交通詳解', '1. 步至<b>西鐵福岡(天神)</b> (Solaria 2F)<br>2. 搭西鐵天神大牟田線至<b>二日市站</b><br>3. 換乘西鐵太宰府線至終點站<br>4. 出站步行 4 分鐘抵達天滿宮')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 轉乘指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">10:30 - 13:00</p><h3 class="font-bold">太宰府天滿宮 / 表參道</h3></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">15:00 - 18:00</p><h3 class="font-bold">福岡塔參觀 🗼</h3><button onclick="showInfo('前往福岡塔', '1. 回西鐵天神，轉往地鐵天神站<br>2. 機場線至<b>西新站</b><br>3. 轉公車或步行抵達福岡塔')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">08:30 - 09:30</p><h3 class="font-bold">早餐：Pain Stock 🥐</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">09:30 - 10:30</p><h3 class="font-bold">前往太宰府</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">10:30 - 13:00</p><h3 class="font-bold">太宰府天滿宮</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">15:00 - 18:00</p><h3 class="font-bold">福岡塔參觀 🗼</h3></div>
                 <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">18:00 - </p><h3 class="font-bold text-[#F5F5DC]">明太子飯晚餐 & 中洲屋台</h3></div>
             </div>
         </div>
@@ -133,28 +91,51 @@
         <div id="day-3" class="day-card space-y-6">
             <div class="space-y-8 relative pl-8">
                 <div class="timeline-line"></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">09:30 - 10:30</p><h3 class="font-bold">早餐：Full Full 天神店 🥖</h3><button onclick="showInfo('早餐交通', '赤坂站搭地鐵至天神站，步行即可')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">11:00 - 13:00</p><h3 class="font-bold">櫛田神社參拜</h3><button onclick="showInfo('前往神社', '搭乘機場線至<b>祇園站</b>，步行 7 分鐘')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">14:00 - 19:00</p><h3 class="font-bold">天神地下街 / Parco / Mina</h3><button onclick="showInfo('地鐵轉乘', '1. 步行至地鐵<b>櫛田神社前站</b><br>2. 搭乘<b>七隈線</b>往橋本方向<br>3. 於<b>天神南站</b>下車')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">19:00 - 20:30</p><h3 class="font-bold">晚餐：葫蘆壽司 🍣</h3><button onclick="showInfo('餐後回家', '1. 步行 12 分鐘回飯店<br>2. 或至天神站搭 1 站到赤坂站')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">09:30 - 10:30</p><h3 class="font-bold">早餐：Full Full 天神店 🥖</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">11:00 - 13:00</p><h3 class="font-bold">櫛田神社參拜</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">14:00 - 19:00</p><h3 class="font-bold">天神地下街 / 採買</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">19:00 - 20:30</p><h3 class="font-bold">晚餐：葫蘆壽司 🍣</h3></div>
             </div>
         </div>
 
         <div id="day-4" class="day-card space-y-6">
             <div class="space-y-8 relative pl-8">
                 <div class="timeline-line"></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:00 - 11:30</p><h3 class="font-bold">早午餐：麵屋兼虎 🍜</h3><button onclick="showInfo('前往麵屋兼虎', '1. 赤坂站搭機場線至天神<br>2. 步行 9 分鐘至天神本店')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">11:30 - 18:00</p><h3 class="font-bold">博多車站 / 阪急採買</h3><button onclick="showInfo('前往博多站', '步行至<b>天神南站</b>，搭乘七隈線直達<b>博多站</b>')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
-                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-orange-400"></div><p class="text-xs opacity-60 font-mono">18:30 - 20:35</p><h3 class="font-bold text-orange-200">機場 Check-in & 晚餐</h3><button onclick="showInfo('前往機場', '搭乘機場線回<b>福岡機場站</b>')" class="mt-2 text-[10px] bg-blue-900/40 px-3 py-2 rounded-xl border border-blue-400/50 font-bold">ℹ️ 交通指引</button></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">10:00 - 11:30</p><h3 class="font-bold">早午餐：麵屋兼虎 🍜</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white opacity-40"></div><p class="text-xs opacity-60 font-mono">11:30 - 18:00</p><h3 class="font-bold">博多車站 / 阪急採買</h3></div>
+                <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-orange-400"></div><p class="text-xs opacity-60 font-mono">18:30 - 20:35</p><h3 class="font-bold text-orange-200">機場 Check-in</h3></div>
                 <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-[#F5F5DC]"></div><p class="text-xs opacity-60 font-mono">20:35 - 22:20</p><h3 class="font-bold font-bold">福岡機場 ✈️ 桃園機場</h3></div>
                 <div class="relative"><div class="absolute -left-[21px] w-3 h-3 rounded-full bg-white ring-4 ring-[#36563C]"></div><p class="text-xs opacity-60 font-mono">22:20 - </p><h3 class="font-bold">返回建國路小屋 🏠</h3></div>
             </div>
         </div>
 
         <div id="day-5" class="day-card space-y-6">
-             <div class="bg-[#F5F5DC]/10 p-5 rounded-3xl border border-[#F5F5DC]/20 space-y-4">
-                <h3 class="font-bold">📝 旅行筆記</h3>
-                <p class="text-xs opacity-80 italic">記得隨身攜帶交通卡 (ICOCA/Suica) 與護照。</p>
+            <div class="menu-grid">
+                <button onclick="showPacking()" class="bg-[#F5F5DC]/10 p-6 rounded-3xl border border-[#F5F5DC]/20 flex flex-col items-center gap-3">
+                    <span class="text-3xl">🧳</span>
+                    <span class="font-bold text-sm">行李清單</span>
+                </button>
+                <button onclick="showHotel()" class="bg-[#F5F5DC]/10 p-6 rounded-3xl border border-[#F5F5DC]/20 flex flex-col items-center gap-3">
+                    <span class="text-3xl">🏨</span>
+                    <span class="font-bold text-sm">住宿資訊</span>
+                </button>
+                <button onclick="showEmergency()" class="bg-[#F5F5DC]/10 p-6 rounded-3xl border border-[#F5F5DC]/20 flex flex-col items-center gap-3">
+                    <span class="text-3xl">🆘</span>
+                    <span class="font-bold text-sm text-center">緊急聯絡</span>
+                </button>
+                <button onclick="showJapanese()" class="bg-[#F5F5DC]/10 p-6 rounded-3xl border border-[#F5F5DC]/20 flex flex-col items-center gap-3">
+                    <span class="text-3xl">💬</span>
+                    <span class="font-bold text-sm">常用日文</span>
+                </button>
+                <button onclick="showGifts()" class="col-span-2 bg-orange-400/20 p-6 rounded-3xl border border-orange-400/30 flex items-center justify-center gap-4">
+                    <span class="text-3xl">🎁</span>
+                    <span class="font-bold text-lg tracking-widest text-orange-100">伴手禮總覽</span>
+                </button>
+            </div>
+
+            <div class="p-5 rounded-3xl bg-[#F5F5DC]/5 border border-dashed border-[#F5F5DC]/20">
+                <h4 class="text-xs font-bold opacity-50 mb-2 uppercase">Quick Note</h4>
+                <p class="text-xs leading-relaxed opacity-70">出發前請確認 VJW (Visit Japan Web) 已完成填寫並截圖 QR Code，祝旅途愉快！</p>
             </div>
         </div>
     </main>
@@ -167,10 +148,8 @@
             document.querySelectorAll('.day-card').forEach(el => el.classList.remove('active'));
             const target = document.getElementById(`day-${index}`);
             if(target) target.classList.add('active');
-            
             document.getElementById('current-date-label').innerText = dates[index];
             document.getElementById('region-label').innerText = regions[index];
-            
             document.querySelectorAll('.day-btn').forEach((btn, i) => {
                 if(i === index) {
                     btn.classList.add('bg-[#F5F5DC]', 'text-[#36563C]', 'scale-110');
@@ -191,6 +170,126 @@
 
         function closeModal() {
             document.getElementById('info-modal').style.display = 'none';
+        }
+
+        // 行李清單
+        function showPacking() {
+            showInfo('🧳 行李檢查清單', `
+                <div class="space-y-4">
+                    <div>
+                        <p class="font-bold text-orange-600 mb-1 underline">👜 手持行李</p>
+                        <p class="text-xs">護照、口罩、雨傘、帽子、手機、小面紙、濕紙巾、暖暖包、飲用水、暈車藥、行動充、信用卡、台日幣、證件、拍立得、腳架</p>
+                    </div>
+                    <div class="pt-2 border-t border-gray-200">
+                        <p class="font-bold text-blue-700 mb-1 underline">🧳 托運行李</p>
+                        <p class="text-xs text-gray-600">內衣、內褲、衣服、褲子、襪子、洗面乳、乳液、化妝水、牙刷、毛巾、化妝包、梳子、暖暖包、充電線、轉接頭、生理藥品、常備藥品</p>
+                    </div>
+                </div>
+            `);
+        }
+
+        // 住宿資訊
+        function showHotel() {
+            showInfo('🏨 飯店住宿詳情', `
+                <div class="space-y-6">
+                    <div class="p-3 bg-green-50 rounded-xl">
+                        <p class="font-bold">1. 由布院ユウベルホテル</p>
+                        <p class="text-[11px] mt-1 italic">房型：特別和室 (59平米)｜展望內湯付</p>
+                        <p class="text-[11px] mt-2">📍 大分県由布市湯布院町川上1691-8</p>
+                        <p class="text-[11px]">📞 0977-28-2552</p>
+                        <p class="text-[11px]">🕒 IN: 15:00 / OUT: 10:30</p>
+                    </div>
+                    <div class="p-3 bg-blue-50 rounded-xl">
+                        <p class="font-bold">2. APA 福岡天神西</p>
+                        <p class="text-[11px] mt-1 italic">房型：雙人禁菸房</p>
+                        <p class="text-[11px] mt-2">📍 福岡県福岡市中央区大名2-9-11</p>
+                        <p class="text-[11px]">📞 092-717-3111</p>
+                        <p class="text-[11px]">🕒 IN: 15:00 / OUT: 10:00</p>
+                    </div>
+                </div>
+            `);
+        }
+
+        // 緊急聯絡
+        function showEmergency() {
+            showInfo('🆘 緊急聯絡資訊', `
+                <div class="space-y-4">
+                    <div class="bg-red-50 p-3 rounded-xl border border-red-200">
+                        <p class="font-bold text-red-600">🇯🇵 日本國內</p>
+                        <p class="text-sm">警察：110 / 急救：119</p>
+                    </div>
+                    <div class="bg-gray-100 p-3 rounded-xl">
+                        <p class="font-bold">🇹🇼 駐日代表處 (福岡)</p>
+                        <p class="text-sm">電話：092-734-2810</p>
+                        <p class="text-xs text-gray-500 mt-1">(急難救助專線：090-1922-6110)</p>
+                    </div>
+                </div>
+            `);
+        }
+
+        // 常用日文
+        function showJapanese() {
+            showInfo('💬 旅遊常用日文', `
+                <div class="space-y-4 max-h-[50vh] overflow-y-auto pr-2">
+                    <div class="text-[11px] space-y-2">
+                        <p class="font-bold border-b pb-1 text-blue-700">【問候】</p>
+                        <p>早安：Ohayou (おはよう)</p>
+                        <p>謝謝：Arigatou (ありがとう)</p>
+                        <p class="font-bold border-b pb-1 text-blue-700 mt-3">【餐飲/結帳】</p>
+                        <p>有中文菜單嗎？：Chuugokugo menyuu arimasuka?</p>
+                        <p>結帳：Okaikei onegaishimasu (お会計)</p>
+                        <p class="font-bold border-b pb-1 text-blue-700 mt-3">【購物/住宿】</p>
+                        <p>多少錢？：Ikura desuka? (いくらですか)</p>
+                        <p>我想寄放行李：Nimotsu o azuketai desu</p>
+                        <p class="font-bold border-b pb-1 text-blue-700 mt-3">【觀光/問路】</p>
+                        <p>廁所在哪？：Toire wa doko desuka?</p>
+                        <p>這裡可以拍照嗎？：Shashin ii desuka?</p>
+                    </div>
+                </div>
+            `);
+        }
+
+        // 伴手禮
+        function showGifts() {
+            showInfo('🎁 九州最強伴手禮清單', `
+                <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-2 text-[11px]">
+                    <div class="border-b pb-2">
+                        <p class="font-bold text-orange-600">1. 如水庵 筑紫麻糬</p>
+                        <p>推薦：經典黑蜜黃豆粉麻糬</p>
+                        <p>地點：博多車站各商場 ｜ 售價：約¥800起</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <p class="font-bold text-orange-600">2. 福太郎 明太子仙貝 (MENBEI)</p>
+                        <p>推薦：原味、辛口、蔥味</p>
+                        <p>地點：博多車站/機場 ｜ 售價：約¥540(8袋)</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <p class="font-bold text-orange-600">3. 薫るバター サブリナ</p>
+                        <p>推薦：花朵造型奶油餅乾 (Sabrina)</p>
+                        <p>地點：博多阪急 1F</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <p class="font-bold text-orange-600">4. 鈴乃最中 (鈴懸)</p>
+                        <p>推薦：鈴鐺造型最中、紅豆餅</p>
+                        <p>地點：博多站/本店 ｜ 售價：約¥1200起</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <p class="font-bold text-orange-600">5. 薯條三兄弟 (九州限定)</p>
+                        <p>商品：明太子風味薯條</p>
+                        <p>地點：福岡機場/博多站免稅店</p>
+                    </div>
+                     <div class="border-b pb-2">
+                        <p class="font-bold text-orange-600">6. 三日月屋 拉斯克 (ラスクロ)</p>
+                        <p>商品：可頌口感長條脆餅</p>
+                        <p>地點：博多車站 1F ｜ 售價：約¥500起</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <p class="font-bold text-orange-600">7. shin shin/一幸舎 拉麵包</p>
+                        <p>商品：豚骨拉麵調理包(含麵條)</p>
+                        <p>地點：博多站/各大超市</p>
+                    </div>
+                </div>
+            `);
         }
     </script>
 </body>
