@@ -6,10 +6,10 @@
     <title>九州 2026 旅程</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 色系設定：柳染綠與米白色 */
+        /* 色系設定：木質棕與米白色 */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background-color: #939650; /* 柳染綠背景 */
+            background-color: #876D5A; /* 更新為木質棕背景 */
             color: #F5F5DC; /* 米白色文字 */
         }
         .day-card { display: none; }
@@ -19,7 +19,7 @@
     </style>
 </head>
 <body class="pb-24">
-    <header class="p-6 sticky top-0 z-20 bg-[#939650]/90 backdrop-blur-md border-b border-[#F5F5DC]/20">
+    <header class="p-6 sticky top-0 z-20 bg-[#876D5A]/90 backdrop-blur-md border-b border-[#F5F5DC]/20">
         <div class="flex justify-between items-end">
             <div>
                 <h1 class="text-2xl font-bold text-[#F5F5DC]">KYUSHU 2026</h1>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="flex gap-2 mt-4 overflow-x-auto pb-2 no-scrollbar">
-            <button onclick="switchDay(0)" class="day-btn px-4 py-2 rounded-xl bg-[#F5F5DC] text-[#939650] text-xs font-bold shadow-sm">D1</button>
+            <button onclick="switchDay(0)" class="day-btn px-4 py-2 rounded-xl bg-[#F5F5DC] text-[#876D5A] text-xs font-bold shadow-sm">D1</button>
             <button onclick="switchDay(1)" class="day-btn px-4 py-2 rounded-xl border border-[#F5F5DC]/50 text-[#F5F5DC] text-xs font-bold">D2</button>
             <button onclick="switchDay(2)" class="day-btn px-4 py-2 rounded-xl border border-[#F5F5DC]/50 text-[#F5F5DC] text-xs font-bold">D3</button>
             <button onclick="switchDay(3)" class="day-btn px-4 py-2 rounded-xl border border-[#F5F5DC]/50 text-[#F5F5DC] text-xs font-bold">D4</button>
@@ -42,20 +42,20 @@
     <main class="p-5">
         <div id="day-0" class="day-card active space-y-4">
             <div class="bg-[#F5F5DC]/10 p-5 rounded-3xl shadow-sm border border-[#F5F5DC]/20">
-                <span class="text-[10px] bg-[#F5F5DC] text-[#939650] px-2 py-1 rounded-md font-bold">交通專區</span>
+                <span class="text-[10px] bg-[#F5F5DC] text-[#876D5A] px-2 py-1 rounded-md font-bold">交通專區</span>
                 <h3 class="font-bold mt-2 text-[#F5F5DC]">14:38 由布院之森 5 號</h3>
                 <p class="text-sm opacity-80 mt-1">必點：B-speak 蛋糕捲、列車便當。</p>
-                <button onclick="window.open('https://www.google.com/maps/search/博多駅')" class="w-full mt-3 py-3 bg-[#F5F5DC] text-[#939650] rounded-2xl text-xs font-bold shadow-md">📍 導航至博多站</button>
+                <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=博多駅')" class="w-full mt-3 py-3 bg-[#F5F5DC] text-[#876D5A] rounded-2xl text-xs font-bold shadow-md">📍 導航至博多站</button>
             </div>
 
             <div class="bg-[#F5F5DC]/10 p-5 rounded-3xl shadow-sm border border-[#F5F5DC]/20">
-                <span class="text-[10px] bg-[#F5F5DC] text-[#939650] px-2 py-1 rounded-md font-bold">必吃美食</span>
+                <span class="text-[10px] bg-[#F5F5DC] text-[#876D5A] px-2 py-1 rounded-md font-bold">必吃美食</span>
                 <h3 class="font-bold mt-2 text-[#F5F5DC]">由布釜飯 心</h3>
                 <p class="text-sm mt-2 font-bold text-[#F5F5DC]">⚠ 注意：只收現金、需提前預訂</p>
                 <p class="text-xs italic mt-1 opacity-80">必點菜單：豐後牛釜飯三吃。</p>
             </div>
 
-            <div class="bg-[#F5F5DC] p-5 rounded-3xl text-[#939650] shadow-lg">
+            <div class="bg-[#F5F5DC] p-5 rounded-3xl text-[#876D5A] shadow-lg">
                 <h3 class="font-bold flex items-center gap-2">🏨 由布院ユウベルホテル</h3>
                 <p class="text-xs font-medium mt-1">地址：大分縣由布市由布院町川上 1691-8</p>
                 <p class="text-xs">電話：0977-28-2552</p>
@@ -66,7 +66,7 @@
             <div class="bg-[#F5F5DC]/10 p-5 rounded-3xl shadow-sm border border-[#F5F5DC]/20">
                 <h3 class="font-bold text-[#F5F5DC]">太宰府天滿宮逛街</h3>
                 <p class="text-sm mt-1 opacity-80">**必買伴手禮**：梅枝餅。</p>
-                <button onclick="window.open('https://www.google.com/maps/search/太宰府天滿宮')" class="w-full mt-3 py-3 bg-[#F5F5DC] text-[#939650] rounded-2xl text-xs font-bold shadow-md">📍 開啟地圖</button>
+                <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=太宰府天滿宮')" class="w-full mt-3 py-3 bg-[#F5F5DC] text-[#876D5A] rounded-2xl text-xs font-bold shadow-md">📍 開啟地圖</button>
             </div>
         </div>
         
@@ -96,10 +96,10 @@
             
             document.querySelectorAll('.day-btn').forEach((btn, i) => {
                 if(i === index) {
-                    btn.classList.add('bg-[#F5F5DC]', 'text-[#939650]');
+                    btn.classList.add('bg-[#F5F5DC]', 'text-[#876D5A]');
                     btn.classList.remove('text-[#F5F5DC]', 'border-[#F5F5DC]/50');
                 } else {
-                    btn.classList.remove('bg-[#F5F5DC]', 'text-[#939650]');
+                    btn.classList.remove('bg-[#F5F5DC]', 'text-[#876D5A]');
                     btn.classList.add('text-[#F5F5DC]', 'border-[#F5F5DC]/50');
                 }
             });
