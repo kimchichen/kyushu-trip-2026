@@ -1,1 +1,106 @@
-# kyushu-trip-2026
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>九州 2026 旅程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #F5F5DC; color: #4A4A4A; }
+        .day-card { display: none; }
+        .day-card.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="pb-24">
+    <header class="p-6 sticky top-0 z-20 bg-[#F5F5DC]/90 backdrop-blur-md border-b border-[#D2B48C]/20">
+        <div class="flex justify-between items-end">
+            <div>
+                <h1 class="text-2xl font-bold text-[#556B2F]">KYUSHU 2026</h1>
+                <p id="current-date-label" class="text-xs opacity-60">2026.02.02 Mon</p>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] font-bold uppercase opacity-50">Current Weather</p>
+                <p class="text-sm font-bold">9°C 🌤️ 福岡</p>
+            </div>
+        </div>
+        <div class="flex gap-2 mt-4 overflow-x-auto pb-2 no-scrollbar">
+            <button onclick="switchDay(0)" class="day-btn px-4 py-2 rounded-xl bg-[#8FBC8F] text-white text-xs font-bold shadow-sm">D1</button>
+            <button onclick="switchDay(1)" class="day-btn px-4 py-2 rounded-xl bg-white text-[#8FBC8F] text-xs font-bold border border-[#8FBC8F]/30">D2</button>
+            <button onclick="switchDay(2)" class="day-btn px-4 py-2 rounded-xl bg-white text-[#8FBC8F] text-xs font-bold border border-[#8FBC8F]/30">D3</button>
+            <button onclick="switchDay(3)" class="day-btn px-4 py-2 rounded-xl bg-white text-[#8FBC8F] text-xs font-bold border border-[#8FBC8F]/30">D4</button>
+            <button onclick="switchDay(4)" class="day-btn px-4 py-2 rounded-xl bg-white text-[#8FBC8F] text-xs font-bold border border-[#8FBC8F]/30">D5</button>
+        </div>
+    </header>
+
+    <main class="p-5">
+        <div id="day-0" class="day-card active space-y-4">
+            <div class="bg-white/70 p-5 rounded-3xl shadow-sm border border-white">
+                <span class="text-[10px] bg-[#8FBC8F] text-white px-2 py-1 rounded-md font-bold">交通專區</span>
+                <h3 class="font-bold mt-2">14:38 由布院之森 5 號</h3>
+                <p class="text-sm opacity-70 mt-1">必點：B-speak 蛋糕捲、列車便當。</p>
+                <button onclick="window.open('https://www.google.com/maps/search/博多駅')" class="w-full mt-3 py-3 bg-[#4A4A4A] text-white rounded-2xl text-xs font-bold">📍 導航至博多站</button>
+            </div>
+            <div class="bg-white/70 p-5 rounded-3xl shadow-sm border border-white">
+                <span class="text-[10px] bg-red-400 text-white px-2 py-1 rounded-md font-bold">必吃美食</span>
+                <h3 class="font-bold mt-2">由布釜飯 心</h3>
+                <p class="text-sm mt-2 font-bold text-red-500">⚠ 注意：只收現金、需提前預訂</p>
+                <p class="text-xs italic mt-1">必點菜單：豐後牛釜飯三吃。</p>
+            </div>
+            <div class="bg-[#8FBC8F] p-5 rounded-3xl text-white shadow-lg">
+                <h3 class="font-bold flex items-center gap-2">🏨 由布院ユウベルホテル</h3>
+                <p class="text-xs opacity-90 mt-1">地址：大分縣由布市由布院町川上 1691-8</p>
+                <p class="text-xs">電話：0977-28-2552</p>
+            </div>
+        </div>
+
+        <div id="day-2" class="day-card space-y-4">
+            <div class="bg-white/70 p-5 rounded-3xl shadow-sm border border-white">
+                <h3 class="font-bold">太宰府天滿宮逛街</h3>
+                <p class="text-sm mt-1">**必買伴手禮**：梅枝餅。</p>
+                <button onclick="window.open('https://www.google.com/maps/search/太宰府天滿宮')" class="w-full mt-3 py-3 bg-[#4A4A4A] text-white rounded-2xl text-xs font-bold">📍 開啟地圖</button>
+            </div>
+            <div class="bg-white/70 p-5 rounded-3xl shadow-sm border border-white">
+                <span class="text-[10px] bg-red-400 text-white px-2 py-1 rounded-md font-bold">必點菜單</span>
+                <h3 class="font-bold mt-2">元祖博多めんたい重</h3>
+                <p class="text-sm mt-1">攻略：目前網路上只能預約 20:30 以後。</p>
+            </div>
+        </div>
+        
+        <div id="tools-section" class="mt-8 space-y-4 border-t border-[#D2B48C]/20 pt-6">
+            <h2 class="font-bold text-lg text-[#556B2F]">旅行工具盒</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-white p-4 rounded-2xl shadow-sm text-center border border-white">
+                    <p class="text-xs font-bold">行李進度</p>
+                    <p class="text-xl mt-1">80%</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl shadow-sm text-center border border-white">
+                    <p class="text-xs font-bold">人均預算</p>
+                    <p class="text-xl mt-1">$40,000</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const dates = ["2026.02.02 Mon", "2026.02.03 Tue", "2026.02.04 Wed", "2026.02.05 Thu", "2026.02.06 Fri"];
+        function switchDay(index) {
+            document.querySelectorAll('.day-card').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById(`day-${index}`);
+            if(target) target.classList.add('active');
+            
+            document.getElementById('current-date-label').innerText = dates[index];
+            
+            document.querySelectorAll('.day-btn').forEach((btn, i) => {
+                if(i === index) {
+                    btn.classList.add('bg-[#8FBC8F]', 'text-white');
+                    btn.classList.remove('bg-white', 'text-[#8FBC8F]');
+                } else {
+                    btn.classList.remove('bg-[#8FBC8F]', 'text-white');
+                    btn.classList.add('bg-white', 'text-[#8FBC8F]');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
