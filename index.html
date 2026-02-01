@@ -253,7 +253,7 @@
                 </div>
             `);
         }
-        function showJapaneseInfo() {
+      function showJapaneseInfo() {
             // 定義播放語音函數
             window.playJp = (text) => {
                 const msg = new SpeechSynthesisUtterance();
@@ -269,58 +269,45 @@
                         <p class="font-bold text-[#36563C] border-b pb-1">基礎問候</p>
                         <div class="flex justify-between items-center"><span>(1) 早安：おはよう (Ohayou)</span><button onclick="playJp('おはよう')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
                         <div class="flex justify-between items-center"><span>(2) 你好：こんにちは (Konnichiwa)</span><button onclick="playJp('こんにちは')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(3) 晚安：こんばんは (Konbanwa)</span><button onclick="playJp('こんばんは')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(4) 再見：さようなら (Sayounara)</span><button onclick="playJp('さようなら')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
                         <div class="flex justify-between items-center"><span>(5) 謝謝：ありがとう (Arigatou)</span><button onclick="playJp('ありがとう')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(6) 對不起：すみません (Sumimasen)</span><button onclick="playJp('すみません')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(7) 沒關係：大丈夫です (Daijoubu desu)</span><button onclick="playJp('だいじょうぶです')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(8) 是/不是：はい/いいえ (Hai/Iie)</span><button onclick="playJp('はい、いいえ')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        
+                        <div class="flex justify-between items-center"><span>(6) 對不起/不好意思：すみません</span><button onclick="playJp('すみません')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+
                         <p class="font-bold text-[#36563C] border-b pb-1 mt-3">交通與尋找</p>
                         <div class="flex justify-between items-center"><span>(9) 廁所在哪？：トイレはどこですか？</span><button onclick="playJp('トイレはどこですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(10) 到OO怎麼去？：OOへはどう行きますか？</span><button onclick="playJp('OOへはどう行きますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(29) 藥妝店在哪？：ドラッグストアはどこですか？</span><button onclick="playJp('ドラッグストアはどこですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(30) 醫院在哪？：病院はどこですか？</span><button onclick="playJp('びょういんはどこですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(10) 藥妝店在哪？：ドラッグストアはどこ？</span><button onclick="playJp('ドラッグストアはどこですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
 
                         <p class="font-bold text-[#36563C] border-b pb-1 mt-3">餐廳與點餐</p>
-                        <div class="flex justify-between items-center"><span>(11) 不好意思我想要點餐：注文をお願いします</span><button onclick="playJp('ちゅうもんをおねがいします')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(12) 麻煩請給我一份菜單：メニューをください</span><button onclick="playJp('メニューをください')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(11) 我要點餐：注文をお願いします</span><button onclick="playJp('ちゅうもんをおねがいします')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(12) 請給我菜單：メニューをください</span><button onclick="playJp('メニューをください')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
                         <div class="flex justify-between items-center"><span>(13) 我要一份這個：これを一つください</span><button onclick="playJp('これをひとつください')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(14) 有不含牛肉的嗎？：牛肉抜きはありますか？</span><button onclick="playJp('ぎゅうにくぬきはありますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(15) 有英文菜單嗎？：英語のメニューはありますか？</span><button onclick="playJp('えいごのメニューはありますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(23) 不好意思，我要結帳：お会計をお願いします</span><button onclick="playJp('おかいけいをおねがいします')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(24) 請問這是什麼費用？：這是什麼費用的日文怎麼說？</span><button onclick="playJp('これはなんのりょうきんですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(14) 有英文菜單嗎？：英語メニューはありますか？</span><button onclick="playJp('えいごのメニューはありますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(15) 我要結帳：お会計をお願いします</span><button onclick="playJp('おかいけいをおねがいします')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(16) 這是什麼費用？：これは何の料金ですか？</span><button onclick="playJp('これはなんのりょうきんですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
 
                         <p class="font-bold text-[#36563C] border-b pb-1 mt-3">購物相關</p>
-                        <div class="flex justify-between items-center"><span>(16) 這個多少錢？：這是多少錢的日文怎麼說？</span><button onclick="playJp('這是多少錢的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(17) 可以刷卡嗎？：可以用信用卡的日文怎麼說？</span><button onclick="playJp('可以用信用卡的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(18) 這個有免稅嗎？：免稅的日文怎麼說？</span><button onclick="playJp('免稅的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(19) 我想要這個：我想要這個的日文怎麼說？</span><button onclick="playJp('我想要這個的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(20) 可以試穿嗎？：試穿的日文怎麼說？</span><button onclick="playJp('試穿的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(21) 有其他顏色嗎？：其他顏色的日文怎麼說？</span><button onclick="playJp('其他顏色的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(22) 可以便宜一點嗎？：便宜一點的日文怎麼說？</span><button onclick="playJp('便宜一點的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(17) 這個多少錢？：これはいくらですか？</span><button onclick="playJp('これはいくらですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(18) 可以刷卡嗎？：カードは使えますか？</span><button onclick="playJp('カードはつかえますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(19) 有免稅嗎？：免税はできますか？</span><button onclick="playJp('めんぜいはできますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(20) 可以試穿嗎？：試着できますか？</span><button onclick="playJp('しちゃくできますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(21) 有其他顏色嗎？：他の色はありますか？</span><button onclick="playJp('ほかのいろはありますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
 
                         <p class="font-bold text-[#36563C] border-b pb-1 mt-3">住宿與其他</p>
-                        <div class="flex justify-between items-center"><span>(25) 辦理入住/退房：入住退房的日文怎麼說？</span><button onclick="playJp('入住退房的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(26) 鑰匙忘在房間：忘記帶鑰匙的日文怎麼說？</span><button onclick="playJp('忘記帶鑰匙的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(27) 可以拍照嗎？：拍照的日文怎麼說？</span><button onclick="playJp('拍照的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
-                        <div class="flex justify-between items-center"><span>(28) 能幫我們拍照嗎？：請人拍照的日文怎麼說？</span><button onclick="playJp('請人拍照的日文怎麼說')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(22) Check-in：チェックインをお願いします</span><button onclick="playJp('チェックインをおねがいします')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(23) 鑰匙忘在房間：鍵を部屋に忘れました</span><button onclick="playJp('かぎをへやにわすれました')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(24) 可以拍照嗎？：写真を撮ってもいいですか？</span><button onclick="playJp('しゃしんをとってもいいですか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
+                        <div class="flex justify-between items-center"><span>(25) 能幫我們拍照嗎？：写真を撮ってもらえますか？</span><button onclick="playJp('しゃしんをとってもらえますか')" class="bg-gray-200 px-2 py-1 rounded">🔊</button></div>
                         
-                        <p class="font-bold text-red-700 border-b pb-1 mt-3">(31) 身體不適表達</p>
+                        <p class="font-bold text-red-700 border-b pb-1 mt-3">(26) 身體不適表達</p>
                         <div class="grid grid-cols-2 gap-2 mt-1">
-                            <button onclick="playJp('頭が痛いです')" class="bg-red-50 p-1 rounded text-left">頭痛 (Atama-itai) 🔊</button>
-                            <button onclick="playJp('喉が痛いです')" class="bg-red-50 p-1 rounded text-left">喉嚨痛 (Nodo-itai) 🔊</button>
-                            <button onclick="playJp('お腹が痛いです')" class="bg-red-50 p-1 rounded text-left">肚子痛 (Onaka-itai) 🔊</button>
-                            <button onclick="playJp('熱があります')" class="bg-red-50 p-1 rounded text-left">發燒 (Netsu-aru) 🔊</button>
-                            <button onclick="playJp('歯が痛いです')" class="bg-red-50 p-1 rounded text-left">牙齒痛 (Ha-itai) 🔊</button>
-                            <button onclick="playJp('吐き気がします')" class="bg-red-50 p-1 rounded text-left">嘔吐感 (Hakike) 🔊</button>
-                            <button onclick="playJp('鼻水が出ます')" class="bg-red-50 p-1 rounded text-left">流鼻水 (Hanamizu) 🔊</button>
+                            <button onclick="playJp('頭が痛いです')" class="bg-red-50 p-1 rounded text-left">頭痛 🔊</button>
+                            <button onclick="playJp('喉が痛いです')" class="bg-red-50 p-1 rounded text-left">喉嚨痛 🔊</button>
+                            <button onclick="playJp('お腹が痛いです')" class="bg-red-50 p-1 rounded text-left">肚子痛 🔊</button>
+                            <button onclick="playJp('熱があります')" class="bg-red-50 p-1 rounded text-left">發燒 🔊</button>
                         </div>
                     </div>
                 </div>
             `);
         }
-
         function showSouvenirInfo() {
             const list = [
                 { name: "BUTTER ＆ bee", loc: "ららぽーと福岡", time: "10:00-21:00", price: "¥1,000~", rec: "發酵奶油夾心餅乾" },
